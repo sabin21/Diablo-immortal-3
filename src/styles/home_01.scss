@@ -1,0 +1,226 @@
+
+@import "common";
+@import "locomotive-scroll";
+
+@mixin backCover {
+  background-size:cover; background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes marquee {
+  from {transform: translateX(0);}
+  to {transform: translateX(-100%);}
+}
+
+@keyframes marquee-r {
+from {transform: translateX(-100%);}
+to {transform: translateX(0);}
+}
+
+@keyframes rollCage {
+from {transform: rotate(0);}
+to {transform: rotate(5turn);}
+}
+
+.smooth-scroll { 
+position: relative; width: 100%;
+}
+.section-wrapper {
+  width:100%; 
+}
+
+#sectionPin {
+  position: relative; height: 100vh; width: 100%; 
+  overflow: hidden; background-color: #000;
+  
+  .pin-wrap {
+      height: 100vh; width: 300%; display: flex;
+  }
+  
+}
+
+.header {
+  position: relative; width: 340px; height: 100%; 
+  background-color: #fff; 
+  .logo-box {
+    position: absolute; width: 260px; top:30px; left:38px;
+    img{ max-width: 100%;}
+  }
+  .header-download {
+      position: absolute; width: 200px; bottom: 60px; margin:auto;
+      left:0; right:0;
+  }
+}
+
+.hero-wrap {
+  min-width: 50vw; height: 100vh; background-size:cover; background-repeat: no-repeat;
+  background-position: top center; padding-right: 85.185185vh;
+  &#hero-cover-1 {
+      background-image: url(../img/hero_back_1.png);
+  }
+}
+.hero-con-wrap {
+  width:140vw; height: 100vh; overflow: hidden;
+  position: relative; 
+  .headline-wrap{
+      width:100%; height: 100vh; overflow: hidden;
+      &::before {
+          display: block; content: ''; position: absolute;
+          width: 32px; height:100%;
+          background-color: #fff;
+          top:0; left:0; z-index: 10;
+      }
+  }
+  .headline {
+      width: 100%; height: calc(100vh / 5);
+      background-repeat: repeat-x; display: block;
+      background-size: auto 100%; opacity: 1.5;
+      animation-duration: 12s; border-top:1px solid #303030;
+      &.odd { 
+          background-image: url(../img/headline_1.svg);
+          animation: lineAni1 20s; animation-iteration-count: infinite;
+          animation-fill-mode: forwards; animation-timing-function: linear;
+      }
+      &.even { 
+          background-image: url(../img/headline_2.svg);
+          animation: lineAni2 20s; animation-iteration-count: infinite;
+          animation-fill-mode: forwards; animation-timing-function: linear;
+      }
+      @keyframes lineAni1 {
+          0% { background-position: 0% 0%; }
+          100% { background-position: 100% 0%; }
+      }
+      @keyframes lineAni2 {
+          0% { background-position: 0% 0%;}
+          100% { background-position: -100% 0%;}
+      }
+  }
+  .phone-box {
+      position: absolute; width: 825px; height: 415px; z-index: 10;
+      left:calc(50% - 412px); top:calc(50% - 210px); 
+      &::after {
+          content: ''; display: block; position: absolute;
+          width:100%; height: 100%; background-size: contain;
+          background-image: url(../img/iphone_frame.png);
+      }
+      .video-wrap {
+          position: absolute; width: calc(100% - 10px); height: calc(100% - 20px); overflow: hidden;
+          margin: auto; left:0; right:0; top:0; bottom: 0;
+          border-radius: 50px;
+          video { position: absolute; width: 100%; }
+      }
+      
+  }
+}
+
+//----------
+
+.marquee {
+border-bottom: 1px solid #4b4b4b;
+color: #fefefe;
+font-size: 30px; font-weight: 900;
+height: calc(100vh / 5); line-height: 0.85em;
+overflow: hidden;
+position: relative;
+width: 100%;
+
+& img {
+  object-fit: cover;
+  max-height: 110px;
+}
+}
+
+.track {
+height: 100%;
+overflow: hidden;
+padding: 2rem 0;
+position: absolute;
+transition: background-color 300ms ease, color 300ms ease;
+white-space: nowrap;
+
+& .text {
+  animation: marquee 50000ms linear infinite;
+  align-items: center;
+  display: inline-flex;
+  will-change: transform;
+  
+  &.-r {
+    //animation-name: marquee-r;
+  }
+  
+  &.-twox {
+    animation-duration: 25000ms;
+  }
+}
+
+&:hover {
+  //background-color: #efefef;
+  //color: #1A1F24;
+
+  img {
+    animation: rollCage 10000ms linear infinite;
+  }
+  
+  & .-green {
+    //color: #BEB9A3;
+  }
+}
+}
+.-green {
+color: #fff;
+font-weight: 900;
+}
+//----------
+.section {
+  width: 100%; height: 100vh; 
+  &#section-test-1 {
+      background-image: url(../img/con_test_1.png); background-position: top center;
+      min-height: 1080px;
+      border-top: 1px solid #000;
+  }
+  &#section-test-2 {
+      background-image: url(../img/con_test_2.png); background-position: top center;
+      min-height: 1080px;
+      border-top: 1px solid #000;
+  }
+  &.section-features {
+      background-color:#fff; overflow: hidden; border-top: 1px solid #000; position: relative;
+      .features-pin-wrap{
+          min-width: 100%; height: 100%; display: flex; flex-wrap: nowrap; position: absolute;
+          .card-wrap {
+              height: calc(100vh - 280px); margin:auto; margin-left:140px;
+              top:0; bottom: 0;
+              border:1px solid;
+              background-image: url(../img/features_1.png);
+              background-size:cover; background-position: left bottom;
+          }
+      }
+  }
+  &.gallery-wrap {
+    overflow: hidden;
+      &.sample {
+          background-size: cover; background-position: center center;
+          background-image: url(../img/gellery_sample.png);            
+      }
+      .demo-1__gallery {
+        //visibility: hidden;
+      }
+  }
+}
+
+
+//---------
+.section{
+  &.section-grid {
+      height: auto; border-top: 1px solid; position: relative;
+      width:100vw; height: 100vh; text-align: center;
+      line-height: 0;
+      .tip-wrap {
+        width:100%; height: 100vh; overflow: hidden; position:relative;
+      }
+  }
+  .grid-sample {
+      height: 100vh; line-height: 0;
+      position: relative;
+  }
+}

@@ -1,0 +1,130 @@
+
+@import "common";
+
+
+body {
+  overflow-x: hidden; 
+  background-color: #1D2023;
+}
+p { line-height: 1.6em;}
+.hero-wrap {
+  position: fixed; width:100%; height: 100vh;
+}
+.hero-box {
+  position: absolute; width: 100%; height: 100vh;
+  .logo-big {
+      position: absolute; width:260px; margin: auto;
+      left:0; right:0; top: 100px; z-index: 99999;
+      img { max-width: 100%;}
+  }
+  .header {
+      position: fixed; width:100%; height: 152px;
+      left:0; top:0; z-index: 9999;
+      &::after { 
+          display: block; content:''; position: absolute; width: 100%; height: 100%;
+          background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 27%,rgba(0,0,0,0) 100%);
+      }
+      .header-right {
+          position: absolute; top:28px; right:40px; width: 307px; z-index: 2;
+          img { max-width: 100%; }
+      }
+  }
+  .visual-1 {
+      position: fixed; width:35vw; max-width: 820px; bottom:0; right:-200px; 
+      img { position: absolute; max-width: 100%; bottom: 0; right:0; }
+  }
+  .visual-2 {
+      position: fixed; width:36vw; max-width: 600px; bottom:-50px; left:-240px; 
+      img { position: absolute; max-width: 100%; bottom: 0; left:0; }
+  }
+}
+.section-2 {
+  position: absolute; width:100%; height: 100vh; top: 100vh;
+  //border: red 1px solid;
+  .headline { 
+      display: block; position: fixed; width: 100%; margin: auto; top: 39vh; 
+      text-align: center; opacity: 0;
+      .inner {
+          width:25%; filter:drop-shadow(0 0 10px #000) brightness(10);           
+      }
+  }
+  @keyframes headlineLoop {
+      0%{ left:0; }
+      100%{ left:-100%; }
+  }
+}
+.section-3 {
+  position: absolute; width:100%; height: auto; top: 300vh; margin: auto;
+  left:0; right:0; display: flex; flex-direction: column;
+  .card-wrap {
+      position: absolute; width: 60%; height: 30vh; min-height: 500px;  
+      max-width: 1320px; top: calc(50% - 200px);
+      &.card-1 { left: calc(50% - 700px); }
+      &.card-2 { right: calc(50% - 700px); }
+      &.card-3 { left: calc(50% - 700px); }
+      &.card-4 { right: calc(50% - 700px);}
+      &.right {
+          .pict-wrap { left:auto; right:0; }
+          .card-body { left: auto; right:800px; }
+      }
+      .pict-wrap { 
+          position: absolute; width: 100%; max-width: 920px; line-height: 0;
+          box-shadow: 16px 8px 8px rgba(0, 0, 0, 0.5); left:0;
+          video { width: 100%; }
+      }
+      .card-body {
+          width: 600px; color:#fff; padding: 2rem 0;
+          position: absolute; left: 800px; top: 100px;
+          h3 { 
+              font-family: 'kodia'; font-size: 42px; padding: 0 0 1rem 0; 
+              color:#F0D7B4; letter-spacing: -0.08em;
+          }
+          p { font-size: 22px; }
+      }
+  }
+  .cut-wrap {
+      position: relative; width:100%; height:100vh; background-size:cover; 
+      background-repeat: no-repeat;
+      &.cut-1 { background-image: url(../../public/img/back_1.jpg); }
+      &.cut-2 { background-image: url(../../public/img/back_2.jpg); }
+      &.cut-3 { background-image: url(../../public/img/back_3.jpg); }
+      &.cut-4 { background-image: url(../../public/img/back_4.jpg); }
+  }
+}
+.section-4 {
+  position: absolute; width: 100%; height: 180vh; min-height: 1400px; top: 600vh;
+  text-align: center;
+  background-repeat: no-repeat; background-position: bottom center;
+  background-image: url(../../public/img/back_diablo.jpg);
+  img { margin-top: 10rem; }
+  //border: yellow 1px solid;
+}
+.contents-wrap {
+  position: absolute; width: 100%; max-width: 2560px; height: 450vh; left:0; right:0;
+  margin: 0 auto; top: 100vh; display: flex;
+  flex-direction: column; background-color: #000;
+  .con-1-wrap {
+      position: relative; width: 100%; height: 140vh; min-height: 1200px;
+      .body-back {
+          position: absolute; top:-200px; max-width: 100%; 
+      }
+      .event-wrap {
+          position: absolute; top: 400px; z-index: 5; 
+          width:100%; height: 1000px;
+          background: url(../../public/img/a_event.png) no-repeat top center;
+      }        
+  }
+}
+
+.scroll-element {
+  display: block; position: absolute; width:100px; height: 450vh;
+  right:0; top:0; z-index: 100; display: flex; flex-direction: column;
+  .trigger {
+      display: block; width:100%;
+      position: relative; height: 100vh; min-height: 640px;
+      &.trigger-1 {
+          height: 200vh;
+      }
+  }
+}
+
